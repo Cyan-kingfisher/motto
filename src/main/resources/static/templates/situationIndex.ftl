@@ -47,9 +47,9 @@
     <i class="material-icons">menu</i>
 </a>
 <div class="nr">
-    <h4 class="left f24">${lover.}</h4>
-    <p class="f18">${lover.text}</p>
-    <p class="right f18">${lover.from}</p>
+    <h4 class="left f24">${lover.loveTwin}</h4>
+    <p class="f18">${lover.loveText}</p>
+    <p class="right f18">${lover.loveFrom}</p>
 </div>
 
 <script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>

@@ -1,15 +1,17 @@
 package witness.my.heart.speech.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import witness.my.heart.speech.common.Content;
+import witness.my.heart.speech.dao.ImgDAO;
+import witness.my.heart.speech.entity.ImgDO;
 import witness.my.heart.speech.util.RedisUtil;
 
 import java.util.List;
 
 /**
- * @author AoJin
+ * @name: AoJin
+ * @date: 2021/6/16
  */
 @Service
 public class RoundImageServiceImpl implements RoundImageService {
@@ -17,40 +19,47 @@ public class RoundImageServiceImpl implements RoundImageService {
     @Autowired
     private RedisUtil redisUtil;
 
-    @Override
-    public boolean addImage(String imgUrl) {
-        if (imgUrl == null || imgUrl.equals("")) {
-            return false;
-        }
-        return redisUtil.lSet(Content.REDIS_QUEUE_IMG, imgUrl);
-    }
+    @Autowired
+    private ImgDAO imgDAO;
 
     @Override
-    public boolean delImage(String img) {
-        if (img == null || img.equals("")) {
-            return false;
-        }
-        redisUtil.lRemove(Content.REDIS_QUEUE_IMG, 0, img);
+    public boolean addImage(String imgUrl) {
+        ImgDO imgDO = new ImgDO();
+        imgDO.setImgUrl(imgUrl);
+        imgDAO.save(imgDO);
         return true;
     }
 
     @Override
-    public String getImage() {
-        if (!redisUtil.hasKey(Content.REDIS_QUEUE_IMG)) {
-            return "error";
-        }
+    public boolean delImage(Integer id) {
+        ImgDO imgDO = imgDAO.getOne(id);
+        imgDO.setImgIsDel(1);
+        imgDAO.save(imgDO);
+        return true;
+    }
 
-        String img = (String) redisUtil.lPop(Content.REDIS_QUEUE_IMG, 1);
-        redisUtil.lSet(Content.REDIS_QUEUE_IMG, img);
-        return img;
+    /**
+     * 随机图
+     *
+     * @return 图
+     */
+    @Override
+    public String getImage() {
+        List<ImgDO> list = imgDAO.findAllByImgIsDel(0);
+        int size = list.size();
+        int res = (int) (size * Math.random());
+        if (redisUtil.hasKey(Content.REDIS_QUEUE_IMG)) {
+            int flag = (Integer) redisUtil.get(Content.REDIS_QUEUE_IMG);
+            while (res == flag) {
+                res = (int) (size * Math.random());
+            }
+        }
+        redisUtil.set(Content.REDIS_QUEUE_IMG, res);
+        return list.get(res).getImgUrl();
     }
 
     @Override
-    public List<Object> getAll() {
-        if (!redisUtil.hasKey(Content.REDIS_QUEUE_IMG)) {
-            return null;
-        }
-        return redisUtil.lGet(Content.REDIS_QUEUE_IMG,0 ,-1);
+    public List<ImgDO> getAll() {
+        return imgDAO.findAllByImgIsDel(0);
     }
-
 }

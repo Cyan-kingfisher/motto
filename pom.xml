@@ -10,7 +10,7 @@
     </parent>
     <groupId>witness.my.heart</groupId>
     <artifactId>speech</artifactId>
-    <version>2.1201</version>
+    <version>3.0</version>
     <name>speech</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -110,6 +110,7 @@
     </dependencies>
 
     <build>
+        <finalName>motto</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

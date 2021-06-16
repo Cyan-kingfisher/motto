@@ -24,8 +24,8 @@ public class RoundController {
     }
 
     @RequestMapping("/back/DelImg")
-    public Result tractionDelImg(@NonNull String imgUrl) {
-        boolean flag = roundImageService.delImage(imgUrl);
+    public Result tractionDelImg(@NonNull Integer id) {
+        boolean flag = roundImageService.delImage(id);
         if (flag) {
             return Result.success();
         } else {
