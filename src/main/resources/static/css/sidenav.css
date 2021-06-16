@@ -1,0 +1,128 @@
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../font/font.woff2") format('woff2');
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+body {
+    background: #494A5F;
+    color: #D5D6E2;
+    font-weight: 500;
+    font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: rgba(255, 255, 255, 0.6);
+    outline: none;
+    text-decoration: none;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+a:hover, a:focus {
+    color: #74777b;
+    text-decoration: none;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.sidenav {
+    background: #212121;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .3);
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    overflow: auto;
+    transform: translate(-262px, 0);
+    transition: transform .3s;
+    top: 0;
+    width: 256px;
+    z-index: 100
+}
+
+.sidenav.show {
+    transform: translate(0, 0)
+}
+
+.sidenav-brand {
+    background: #FF5722;
+    border-bottom: 1px solid #FF7043;
+    color: #FAFAFA;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    padding: 20px 24px 19px
+}
+
+.sidenav-dropdown, .sidenav-header {
+    border-bottom: 1px solid #424242;
+    margin: 0
+}
+
+.sidenav-header {
+    background: 0 0;
+    color: #757575;
+    font-size: 19.2px;
+    line-height: 32px;
+    padding: 16px 24px 15px
+}
+
+.sidenav-header small {
+    display: block;
+    font-size: 14.4px;
+    line-height: 16px
+}
+
+.nr {
+    width: 80%;
+    margin: 0 auto
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.f18 {
+    font-size: 18px;
+}
+
+.f24 {
+    font-size: 24px;
+}
