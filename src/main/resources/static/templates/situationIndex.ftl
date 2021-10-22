@@ -34,7 +34,13 @@
         <a href="/lover">爱情</a>
     </div>
     <div class="sidenav-header">
+        <a href="/ravingg">呓语</a>
+    </div>
+    <div class="sidenav-header">
         <a href="/up/affection">UpLover</a>
+    </div>
+    <div class="sidenav-header">
+        <a href="up/upRaving">UpRaving</a>
     </div>
     <div class="sidenav-header">
         <a href="/up/belief">UpFaith</a>

@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 
 <head>
-    <title>upFaith</title>
+    <title>upRaving</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords"
@@ -43,15 +43,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   p-id="2149" fill="#e74c3c"></path>
         </svg>
     </a>
-    <h1 class="w3layouts" style="margin-left: 23%">Faith</h1>
+    <h1 class="w3layouts" style="margin-left: 23%">Raving</h1>
 </div>
 <div class="content-w3ls">
     <div class="content1-agile">
         <div class="info-w3l">
-            <h2 class="wthree">ADD Faith</h2>
-            <form action="/faith" method="post" class="form-agileits">
+            <h2 class="wthree">ADD Raving</h2>
+            <form action="/addRaving" method="post" class="form-agileits">
 					<textarea id="message" name="text" placeholder="Your article"
-                              title="Please enter Your Comments"></textarea>
+                              title="Please enter Your Raving"></textarea>
                 <input type="submit" class="sign-in" value="Submit">
             </form>
             <p class="agileinfo">ICE</p>

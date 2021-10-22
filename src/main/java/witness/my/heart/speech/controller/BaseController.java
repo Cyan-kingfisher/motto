@@ -32,9 +32,29 @@ public class BaseController {
         return "upFaith";
     }
 
+    @RequestMapping("up/upRaving")
+    public String raving() {return "upRaving";}
+
     @RequestMapping("/404")
     public String error() {
         return "404";
+    }
+
+    @RequestMapping("/ravingg")
+    public String ravingInd(Model model) {
+
+        String img = roundImageService.getImage();
+        log.info("faith img: " + img);
+        if ("error".equals(img)) {
+            return "404";
+        }
+        model.addAttribute("img", img);
+
+        String text = roundLiteratureService.roundRaving();
+        log.info("text:" + text);
+        model.addAttribute("text", text);
+
+        return "ravingIndex";
     }
 
     @RequestMapping("/index")

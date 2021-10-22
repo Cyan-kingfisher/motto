@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import witness.my.heart.speech.service.AffectionService;
 import witness.my.heart.speech.service.BeliefService;
+import witness.my.heart.speech.service.RavingService;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -24,6 +25,9 @@ public class BackController {
 
     @Autowired
     private BeliefService beliefService;
+
+    @Autowired
+    private RavingService ravingService;
 
     @Autowired
     private OkHttpClient okHttpClient;
@@ -63,5 +67,14 @@ public class BackController {
         }
     }
 
+    @RequestMapping("/addRaving")
+    public String raving(@NonNull String text) {
+        boolean flag = ravingService.addRecord(text);
+        if (flag) {
+            return "ravingg";
+        } else {
+            return "404";
+        }
+    }
 
 }
