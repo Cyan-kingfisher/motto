@@ -35,6 +35,9 @@ public class BaseController {
     @RequestMapping("up/upRaving")
     public String raving() {return "upRaving";}
 
+    @RequestMapping("/upload")
+    public String fileUp() {return "file_page";}
+
     @RequestMapping("/404")
     public String error() {
         return "404";

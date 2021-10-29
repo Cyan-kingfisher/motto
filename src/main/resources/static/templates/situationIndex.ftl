@@ -37,6 +37,9 @@
         <a href="/ravingg">呓语</a>
     </div>
     <div class="sidenav-header">
+        <a href="/upload">upload</a>
+    </div>
+    <div class="sidenav-header">
         <a href="/up/affection">UpLover</a>
     </div>
     <div class="sidenav-header">
